@@ -2,6 +2,10 @@
 cd /d "%~dp0"
 setlocal
 
+rem --- Allow the interactive GitHub sign-in window ---
+set "GIT_TERMINAL_PROMPT=1"
+set "GCM_INTERACTIVE=auto"
+
 rem --- Locate the portable Git shipped with WorkBuddy ---
 set "PG=D:\workbuddy\resources\vendor\PortableGit"
 if not exist "%PG%\cmd\git.exe" set "PG=%LOCALAPPDATA%\Programs\Git"
@@ -19,7 +23,10 @@ echo   Upload this project to GitHub (one click)
 echo  ==================================================
 echo.
 echo  Git found and ready.
-echo  A browser window may open later for GitHub sign-in.
+echo.
+echo  IMPORTANT: A browser window WILL open for GitHub sign-in.
+echo  Click the green "Authorize" button, then come back here.
+echo  (Only needed the first time; later uploads are automatic.)
 echo.
 echo  The repository URL below is already filled in.
 echo  Just press Enter to use it, or paste a different URL.
