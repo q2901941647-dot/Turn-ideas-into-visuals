@@ -18,7 +18,7 @@ const SECTIONS = [
   ...NAV.map((n) => ({ id: n.id, label: n.label, no: n.id === 'works' ? '01' : String(NAV.indexOf(n) + 1).padStart(2, '0') })),
 ];
 
-const STAT_WORK_IDS = ['beginning', 'concept', 'netease', 'timeline'];
+const STAT_WORK_IDS = ['beginning', 'concept', 'netease', 'glass-vivid'];
 
 export default function Site() {
   const [current, setCurrent] = useState('home');
