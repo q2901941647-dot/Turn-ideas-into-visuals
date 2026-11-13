@@ -3344,3 +3344,47 @@ body.is-scrolled .site-header {
     height: clamp(360px, 46vh, 470px);
   }
 }
+
+/* ── Ring final fix: near-side cards grow downward and were clipped ──
+   Measured at 1080x646: ring span 443px vs stage 360px, bottom overflow 119px.
+   Fix: flatter tilt + wider perspective + lift the whole ring + taller stage. */
+@media (min-width: 901px) {
+  .ring-stage {
+    --ring-r: 442px;
+    --ring-w: 66px;
+    --ring-h: 42px;
+    height: 400px;
+    perspective: 1250px;
+  }
+  .ring-spin {
+    transform: translateY(-46px) rotateX(calc(-17deg + var(--tx, 0deg)))
+      rotateY(calc(var(--ry, 0deg) + var(--ty, 0deg)));
+  }
+}
+@media (min-width: 901px) and (prefers-reduced-motion: reduce) {
+  .ring-spin {
+    transform: translateY(-46px) rotateX(calc(-17deg + var(--tx, 0deg))) rotateY(var(--ty, 0deg));
+  }
+}
+
+/* ── Ring final fix: near-side cards grow downward and were clipped ──
+   Measured at 1080x646: ring span 443px vs stage 360px, bottom overflow 119px.
+   Fix: flatter tilt + wider perspective + lift the whole ring + taller stage. */
+@media (min-width: 901px) {
+  .ring-stage {
+    --ring-r: 442px;
+    --ring-w: 66px;
+    --ring-h: 42px;
+    height: 400px;
+    perspective: 1250px;
+  }
+  .ring-spin {
+    transform: translateY(-46px) rotateX(calc(-17deg + var(--tx, 0deg)))
+      rotateY(calc(var(--ry, 0deg) + var(--ty, 0deg)));
+  }
+}
+@media (min-width: 901px) and (prefers-reduced-motion: reduce) {
+  .ring-spin {
+    transform: translateY(-46px) rotateX(calc(-17deg + var(--tx, 0deg))) rotateY(var(--ty, 0deg));
+  }
+}

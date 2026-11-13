@@ -351,7 +351,7 @@ export function About({ onContact }: { onContact: () => void }) {
         </div>
         <Reveal className="section-title-wrap split-head">
           <h2 className="section-title">关于唐睿</h2>
-          <p className="section-lead">{profile.role} · {profile.major} · {profile.school}</p>
+          <p className="section-lead">{profile.role} · {profile.major}</p>
         </Reveal>
       </div>
 
@@ -487,7 +487,7 @@ export function Contact({
             <small>{profile.roleEn}</small>
           </div>
         </div>
-        <p className="footer-note">© 2027 {profile.name} · {profile.school} 网络与新媒体</p>
+        <p className="footer-note">© 2027 {profile.name} · 网络与新媒体</p>
         <button type="button" className="to-top" onClick={() => onGo('home')}>
           回到顶部 <Icon name="arrowDown" size={14} />
         </button>

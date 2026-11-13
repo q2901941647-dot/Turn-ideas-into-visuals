@@ -4,7 +4,6 @@ export const profile = {
   role: 'AI 短视频编导',
   roleEn: 'AI SHORT VIDEO DIRECTOR',
   major: '网络与新媒体 · 2027 届',
-  school: '广州华商学院',
   city: '广州',
   headline: '让想法，成为画面',
   headlineEn: 'IDEAS IN MOTION, ALWAYS',

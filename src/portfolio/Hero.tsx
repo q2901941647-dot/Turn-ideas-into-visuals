@@ -53,7 +53,7 @@ export function Hero({ onWorks, onAbout, onStat }: HeroProps) {
         <p className="hero-desc">
           从一句话选题，到一条能上线的成片，中间不换人。
           <br />
-          <span>{profile.major} · {profile.school}</span>
+          <span>{profile.major}</span>
         </p>
 
         <div className="hero-actions">

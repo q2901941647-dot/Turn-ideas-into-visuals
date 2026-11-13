@@ -97,7 +97,6 @@ export default function Site() {
       'N:唐;睿;;;',
       'FN:唐睿',
       `TITLE:${profile.role}`,
-      `ORG:${profile.school}`,
       'TEL;TYPE=CELL:13410164607',
       `EMAIL;TYPE=INTERNET:${profile.email}`,
       `NOTE:网络与新媒体 2027 届 · ${profile.availability}`,
