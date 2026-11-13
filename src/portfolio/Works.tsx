@@ -140,7 +140,12 @@ function WorkDetail({
                 loop
               />
             ) : (
-              <img className="detail-media" src={work.gallery[shot] ?? work.cover} alt={`${work.title} 画面 ${shot + 1}`} />
+              <img
+                className="detail-media"
+                src={work.gallery[shot] ?? work.cover}
+                style={work.galleryPosition?.[shot] ? { objectPosition: work.galleryPosition[shot] } : undefined}
+                alt={`${work.title} 画面 ${shot + 1}`}
+              />
             )}
             <span className="detail-media-tag">
               {work.videos ? `VIDEO ${clip + 1} / ${work.videos.length} · ${work.videos[clip].label}` : `STILL ${shot + 1} / ${work.gallery.length}`}
@@ -168,7 +173,11 @@ function WorkDetail({
                     onClick={() => setShot(i)}
                     aria-label={`查看第 ${i + 1} 张`}
                   >
-                    <img src={g} alt="" />
+                    <img
+                      src={g}
+                      alt=""
+                      style={work.galleryPosition?.[i] ? { objectPosition: work.galleryPosition[i] } : undefined}
+                    />
                   </button>
                 ))}
           </div>

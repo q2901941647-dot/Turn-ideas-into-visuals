@@ -54,6 +54,8 @@ export interface Work {
   cover: string;
   coverPosition?: string;
   gallery: string[];
+  /** 每张详情图的裁切焦点（object-position），按 gallery 顺序 */
+  galleryPosition?: string[];
   videos?: VideoClip[];
   summary: string;
   description: string;
@@ -275,6 +277,8 @@ export const works: Work[] = [
     meta: '5 张角色原画 · AI 生成',
     cover: W + 'proto_melee.jpg',
     gallery: [W + 'proto_melee.jpg', W + 'proto_mecha.jpg', W + 'proto_lumiera.jpg', W + 'proto_iso.jpg', W + 'proto_shadow.jpg'],
+    // 前三张里两张是竖幅人物：脸在顶部约 10%；第四张主体（紫色核心）在中部
+    galleryPosition: ['center', 'center', '50% 4%', '50% 42%', '50% 4%'],
     summary: '把脑内的角色，先画准，再让故事成立。',
     description:
       '一组用 AI 绘制的角色概念原画，覆盖机甲、使徒、异构体与原创角色卢米艾拉等。每张都先锁定剪影、配色与材质语言，再展开细节，让角色在单图内就能立住，也为后续短片与分镜提供一致的视觉锚点。',
