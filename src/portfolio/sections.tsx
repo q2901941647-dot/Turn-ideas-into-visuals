@@ -341,6 +341,9 @@ export function Process() {
 /* ---------------- 05 / About ---------------- */
 
 export function About({ onContact }: { onContact: () => void }) {
+  const [reel, setReel] = useState<{ item: number; clip: number } | null>(null);
+  const reelClips = reel ? experience[reel.item]?.clips ?? [] : [];
+  const reelClip = reel ? reelClips[reel.clip] : undefined;
   return (
     <section className="section about-section" id="about">
       <div className="section-head">
@@ -377,12 +380,43 @@ export function About({ onContact }: { onContact: () => void }) {
           <Reveal className="about-panel">
             <span className="eyebrow">WORK EXPERIENCE / 工作经历</span>
             <div className="timeline">
-              {experience.map((e) => (
+              {experience.map((e, ei) => (
                 <div className="timeline-item" key={e.org}>
                   <span className="timeline-dot" />
                   <span className="timeline-period">{e.period}</span>
                   <h4>{e.logo && <img className="timeline-logo" src={e.logo} alt={e.org} />}{e.org} <small>· {e.role}</small></h4>
                   <p>{e.detail}</p>
+
+                  {e.lines && e.lines.length > 0 && (
+                    <div className="timeline-lines">
+                      {e.lines.map((line) => (
+                        <div key={line.label}>
+                          <b>{line.label}</b>
+                          <span>{line.text}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {e.clips && e.clips.length > 0 && (
+                    <div className="timeline-reel">
+                      <span className="reel-label">赛事包装物料 / EVENT REEL · 点击播放</span>
+                      <div className="reel-strip">
+                        {e.clips.map((clip, ci) => (
+                          <button
+                            type="button"
+                            key={clip.src}
+                            className="reel-thumb"
+                            onClick={() => setReel({ item: ei, clip: ci })}
+                            aria-label={`播放 ${clip.label}`}
+                          >
+                            <img src={clip.poster} alt="" loading="lazy" />
+                            <span className="reel-play"><i><Icon name="play" size={13} /></i></span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -404,6 +438,37 @@ export function About({ onContact }: { onContact: () => void }) {
           </Reveal>
         </div>
       </div>
+
+      <Modal open={reel !== null} onClose={() => setReel(null)} label="赛事包装物料" wide>
+        {reel !== null && reelClip && (
+          <div className="reel-modal">
+            <video
+              key={reelClip.src}
+              src={reelClip.src}
+              poster={reelClip.poster}
+              controls
+              autoPlay
+              playsInline
+              loop
+            />
+            <div className="reel-modal-bar">
+              <button
+                type="button"
+                onClick={() => setReel({ ...reel, clip: (reel.clip - 1 + reelClips.length) % reelClips.length })}
+              >
+                上一支
+              </button>
+              <span>{reelClip.label}</span>
+              <button
+                type="button"
+                onClick={() => setReel({ ...reel, clip: (reel.clip + 1) % reelClips.length })}
+              >
+                下一支
+              </button>
+            </div>
+          </div>
+        )}
+      </Modal>
 
       <div className="principles">
         <div className="principles-head">

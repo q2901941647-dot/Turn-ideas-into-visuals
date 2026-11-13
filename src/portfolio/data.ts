@@ -333,13 +333,44 @@ export const toolchain = [
 ];
 
 /** 仅保留可信的两段实习经历。 */
-export const experience = [
+export interface ExperienceClip {
+  src: string;
+  poster: string;
+  label: string;
+}
+
+export interface ExperienceItem {
+  period: string;
+  org: string;
+  role: string;
+  detail: string;
+  logo: string;
+  lines?: { label: string; text: string }[];
+  clips?: ExperienceClip[];
+}
+
+export const experience: ExperienceItem[] = [
   {
     period: '2026.09 — 至今',
     org: '网易互娱',
-    role: '内容制作',
-    detail: 'AI 漫剧：剧本拆解 → 三视图 → 分镜 → 音频驱动；搭建提示词模板库，单套物料提效 60%。',
+    role: '内容制作 · 赛事包装',
+    detail: 'AI 漫剧产线与电竞赛事直播包装两条线并行：前者把剧本拆到批量输出，后者做赛事 PV、直播间视觉与战队动态物料，跟着赛程节奏交付。',
     logo: W + 'logos/netease.png',
+    lines: [
+      {
+        label: 'AI 漫剧',
+        text: '剧本拆解 → 三视图 → 分镜 → 音频驱动；搭建提示词模板库，单套物料提效 60%。',
+      },
+      {
+        label: '赛事包装',
+        text: '赛事 PV / 赛前预热片、直播间视觉包装、战队入场与阵容物料；统一配色、纸质纹理与卡点节奏，按赛程批量交付。',
+      },
+    ],
+    clips: [
+      { src: W + 'ivl-badge.mp4', poster: W + 'ivl-badge.jpg', label: '工牌入场 · 2.7″' },
+      { src: W + 'ivl-logo.mp4', poster: W + 'ivl-logo.jpg', label: '队标演绎 · 12″' },
+      { src: W + 'ivl-roster.mp4', poster: W + 'ivl-roster.jpg', label: '战队阵容与宣言 · 14″' },
+    ],
   },
   {
     period: '2026.06 — 2026.09',
