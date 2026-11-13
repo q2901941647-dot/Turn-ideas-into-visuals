@@ -1,0 +1,230 @@
+/* ── 沉浸画廊：方格拼成的走廊 ── */
+.tunnel-board {
+  display: grid;
+  grid-template-columns: minmax(210px, 300px) 1fr;
+  gap: clamp(20px, 3vw, 48px);
+  align-items: center;
+}
+.tunnel-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.tunnel-copy .section-title {
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.22;
+}
+.tunnel-copy .section-lead {
+  margin: 0;
+}
+.tunnel-stage {
+  position: relative;
+  height: clamp(360px, 50vh, 500px);
+  perspective: 760px;
+  perspective-origin: 50% 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(20, 34, 44, 0.5), rgba(4, 8, 11, 0.92));
+  border: 1px solid var(--line-soft);
+}
+.tunnel-deep {
+  position: relative;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+.tpanel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background-size: cover;
+  background-position: 50% 44%;
+  backface-visibility: hidden;
+  cursor: pointer;
+  transition: filter 0.25s ease;
+}
+.tpanel:hover {
+  filter: brightness(1.3);
+}
+.tp-0,
+.tp-1 {
+  width: 620px;
+  height: 240px;
+  margin: -120px 0 0 -310px;
+}
+.tp-2,
+.tp-3 {
+  width: 240px;
+  height: 372px;
+  margin: -186px 0 0 -120px;
+}
+.tunnel-core {
+  position: absolute;
+  left: -110px;
+  top: -110px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(200, 235, 255, 0.8), rgba(143, 216, 255, 0) 72%);
+  transform: translateZ(-2360px);
+}
+@media (max-width: 900px) {
+  .tunnel-board {
+    grid-template-columns: 1fr;
+  }
+  .tunnel-stage {
+    height: 290px;
+    perspective: 540px;
+  }
+}
+
+/* 段深 190：面板尺寸对齐 */
+.tp-0, .tp-1 { height: 190px; margin-top: -95px; }
+.tp-2, .tp-3 { width: 190px; margin-left: -95px; }
+.tpanel.is-empty { background: transparent; border-color: transparent; pointer-events: none; }
+.tpanel.is-color { cursor: default; }
+
+/* 浅色底 + 线框留白（参考原版） */
+.tunnel-stage {
+  background: #f2eee6;
+  border-color: rgba(255, 255, 255, 0.14);
+  touch-action: none;
+  cursor: pointer;
+}
+.tpanel { border-color: rgba(24, 24, 24, 0.14); }
+.tpanel.is-empty {
+  background: transparent;
+  border-color: rgba(24, 24, 24, 0.16);
+  pointer-events: none;
+}
+.tunnel-core {
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 70%);
+}
+.tunnel-hint {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(10, 14, 18, 0.86);
+  color: #eaf4fa;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* 浅色底 + 线框留白（参考原版） */
+.tunnel-stage {
+  background: #f2eee6;
+  border-color: rgba(255, 255, 255, 0.14);
+  touch-action: none;
+  cursor: pointer;
+}
+.tpanel { border-color: rgba(24, 24, 24, 0.14); }
+.tpanel.is-empty {
+  background: transparent;
+  border-color: rgba(24, 24, 24, 0.16);
+  pointer-events: none;
+}
+.tunnel-core {
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 70%);
+}
+.tunnel-hint {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(10, 14, 18, 0.86);
+  color: #eaf4fa;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* 横截面 3/3/2/2：尺寸由内联样式决定，清掉旧的固定尺寸 */
+.tp-0, .tp-1, .tp-2, .tp-3 { width: auto; height: auto; margin: 0; }
+
+/* 提示跟随鼠标（仅在窗口内显示） */
+.tunnel-hint {
+  position: absolute;
+  transform: translate(14px, 14px);
+  z-index: 6;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+/* 全屏画廊模式 */
+.tunnel-stage.is-expanded {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  border: 0;
+  z-index: 180;
+  padding: 0;
+}
+.tunnel-stage.is-expanded .tunnel-deep {
+  transform: scale(1.55);
+}
+.tunnel-exit {
+  position: absolute;
+  top: 92px;
+  right: 28px;
+  z-index: 4;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(20, 24, 28, 0.35);
+  background: rgba(10, 14, 18, 0.9);
+  color: #eaf4fa;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+}
+.tunnel-exit:hover { background: #0a0e12; }
+
+/* 提示跟随鼠标（仅在窗口内显示） */
+.tunnel-hint {
+  position: absolute;
+  transform: translate(14px, 14px);
+  z-index: 6;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+/* 全屏画廊模式 */
+.tunnel-stage.is-expanded {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  border: 0;
+  z-index: 180;
+  padding: 0;
+}
+.tunnel-stage.is-expanded .tunnel-deep {
+  transform: scale(1.55);
+}
+.tunnel-exit {
+  position: absolute;
+  top: 92px;
+  right: 28px;
+  z-index: 4;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(20, 24, 28, 0.35);
+  background: rgba(10, 14, 18, 0.9);
+  color: #eaf4fa;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+}
+.tunnel-exit:hover { background: #0a0e12; }

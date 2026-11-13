@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Bloom">
+  <defs>
+    <radialGradient id="bloom-dot" cx="35%" cy="30%" r="72%">
+      <stop offset="0%" stop-color="#b6ffe0" />
+      <stop offset="68%" stop-color="#2bbf86" />
+      <stop offset="100%" stop-color="#0c5236" />
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#050b09" />
+  <circle cx="24" cy="24" r="7" fill="url(#bloom-dot)" />
+  <circle cx="40" cy="24" r="7" fill="url(#bloom-dot)" />
+  <circle cx="24" cy="40" r="7" fill="url(#bloom-dot)" />
+  <circle cx="40" cy="40" r="7" fill="url(#bloom-dot)" />
+</svg>
