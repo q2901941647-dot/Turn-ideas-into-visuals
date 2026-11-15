@@ -128,6 +128,67 @@ export const works: Work[] = [
     },
   },
   {
+    id: 'live-overlay',
+    no: '01',
+    title: '赛事直播包装 · 双版式',
+    titleEn: 'LIVE OVERLAY / TWO LAYOUTS',
+    category: 'motion',
+    categoryLabel: '赛事包装 / BROADCAST OVERLAY',
+    year: '2026',
+    meta: '2 支案例 · 1920×1080 · 60fps',
+    cover: W + 'live_cover.jpg',
+    gallery: [W + 'live_01.jpg', W + 'live_02.jpg', W + 'live_03.jpg', W + 'live_04.jpg', W + 'live_05.jpg'],
+    videos: [
+      { src: W + 'live-01.mp4', poster: W + 'live_01.jpg', label: '小词条 01 · 数据面板版', duration: '5″' },
+      { src: W + 'live-02.mp4', poster: W + 'live_04.jpg', label: '小词条 02 · 解说分屏版', duration: '5″' },
+    ],
+    summary: '同一套赛事信息，两种上屏方式。',
+    description:
+      '两条赛事直播包装案例，共用一套红白黑的视觉语法：一条以四宫格比赛画面铺底，叠白色赞助词条、黑色数据面板与红色角标，让赛况与赞助信息在同一屏里各占其位；另一条把比赛实况与黑白解说席分屏，横贯的白色下三分之一条承载「OFFICIAL PARTNER 官方通信行业合作伙伴」与赞助标识。两支都是 1920×1080 / 60fps、5 秒的上屏循环，重点在信息层级而不是花哨动效。',
+    points: [
+      '红 / 白 / 黑三色建立层级：白色承载词条与赞助，黑色承载数据，红色只做角标与提示',
+      '四宫格分屏让比赛实况、解说席、赞助条与数据面板在同一屏共存，互不遮挡',
+      '下三分之一条（小词条）横贯画面，官方合作伙伴信息固定在最易读的位置',
+      '1920×1080 / 60fps / 5″ 循环，按转播上屏节奏设计，不做长过场',
+    ],
+    tools: ['赛事直播包装', '下三分之一条', '信息层级', '分屏版式'],
+    notes: {
+      why: '转播包装的难点不是好看，是同时在屏上放四五种信息还不打架。',
+      decision: '两套版式共用同一套色彩与字号规则，只改分屏结构，便于按赛事环节切换。',
+      answer: '「为什么是两条？」—— 同一套规范在纯比赛与解说分屏两种场景里的落地。',
+    },
+  },
+  {
+    id: 'school-identity',
+    no: '10',
+    title: '校徽展开 · 学校形象演绎',
+    titleEn: 'EMBLEM REVEAL / IDENTITY FILM',
+    category: 'motion',
+    categoryLabel: '形象演绎 / IDENTITY REVEAL',
+    year: '2026',
+    meta: '5″ · 32:9 超宽幅 · 60fps',
+    cover: W + 'school_cover.jpg',
+    gallery: [W + 'school_01.jpg', W + 'school_02.jpg', W + 'school_03.jpg', W + 'school_04.jpg', W + 'school_05.jpg'],
+    videos: [
+      { src: W + 'school-identity.mp4', poster: W + 'school_05.jpg', label: '成片 · 校徽展开', duration: '5″' },
+    ],
+    summary: '两所学校，一枚校徽的两种打开方式。',
+    description:
+      '32:9 超宽幅的校徽与学校形象展开：左半以中山大学绿的底色铺开校徽、创办年份、学科图标（人文典籍 / 医学）与校训「博学、审问、慎思、明辨、笃行」；右半以湖南第一师范学院红对应「要做人民的先生，要做人民的学生」。两校人物、建筑与线框图形沿中轴对称展开，5 秒内完成从校徽到完整信息版面的生长。',
+    points: [
+      '32:9 超宽幅横向对称：绿 / 红两半各自成章，中间由校徽与山形线框咬合',
+      '信息分层：校名 / 创办年份 → 校徽 → 学科图标 → 人物 → 校训，逐级展开',
+      '校徽、建筑照片与线框图形统一压在半透明蒙版下，避免抢文字',
+      '网页交付为 16:9 容器做了同源虚化铺底，完整保留 32:9 原画幅不被裁切',
+    ],
+    tools: ['形象演绎', '超宽幅版式', '信息图形', '动态图形'],
+    notes: {
+      why: '校徽不只是个圆标，它要能长成一整块可被阅读的信息版面。',
+      decision: '用 32:9 超宽幅而不是常规 16:9，让两所学校在同一画面里并置对照。',
+      answer: '「为什么上下有虚化？」—— 原片放进 16:9 播放器时的铺底，避免被裁掉一半。',
+    },
+  },
+  {
     id: 'netease',
     no: '04',
     title: 'AI 漫剧工业化',
@@ -209,34 +270,6 @@ export const works: Work[] = [
     tools: ['AI 生成', '微距摄影', '拟音设计', '剪映专业版', 'After Effects'],
   },
   {
-    id: 'anshi',
-    no: '01',
-    title: '安史之乱',
-    titleEn: 'AN SHI REBELLION · 755—763',
-    category: 'film',
-    categoryLabel: '原创影片 / HISTORICAL FILM',
-    year: '2026',
-    meta: '60″ · 1920×1080 · 代码绘制',
-    cover: W + 'anshi_02.jpg',
-    gallery: [W + 'anshi_02.jpg', W + 'anshi_01.jpg', W + 'anshi_03.jpg', W + 'anshi_04.jpg', W + 'anshi_05.jpg', W + 'anshi_06.jpg', W + 'anshi_07.jpg'],
-    videos: [{ src: W + 'anshi.mp4', poster: W + 'anshi_02.jpg', label: '成片', duration: '60″' }],
-    summary: '一场叛乱，把唐从盛世推入藩镇与南方的时代。',
-    description:
-      '一部 60 秒的唐风历史科普片，以「制度失衡 → 八年兵燹 → 盛世不再」三幕因果链，讲清安史之乱如何改写此后二百年的中国。全部画面由代码手绘 SVG 矢量生成（唐式木刻 + 敦煌写经卷轴装帧），音乐、音效与环境声由算法合成，无外部素材、不花积分。史实严谨：在册户数 891 万 → 193 万明确为统计口径而非死亡人数，规避「死了三千万」的误读。',
-    points: [
-      '视觉系统自定：绢本纸纹、石青石绿、朱红方印、回纹绫边，把浮世绘改造成唐式木刻，规避国潮大红金祥云俗套',
-      '六段插画全部手写 SVG 矢量（2× 超采样抗锯齿），canvas 只保留动态叠层与文字，可确定性重渲染',
-      '音频全内置合成：五声音阶羽调式 BGM + 战鼓脉冲 + 塞外风 / 石窟 / 纸卷三种环境底噪',
-      '信息克制：以天平倾斜作开场记忆点，户数锐减明确标注统计口径，拒绝戏说与红颜祸水式归因',
-    ],
-    tools: ['Canvas 2D', '手写 SVG 矢量', 'Web Audio 合成', '确定性渲染管线', '古籍装帧设计'],
-    notes: {
-      why: '历史科普最易滑向戏说或堆数据；用「制度失衡」一个切口讲因果。',
-      decision: '不用 AI 生图、不引外部素材，全部代码绘制以保证可复现与零成本。',
-      answer: '「户数减了多少？」——891 万到 193 万是统计脱籍，不是死亡数。',
-    },
-  },
-  {
     id: 'glass-vivid',
     no: '07',
     title: 'GLASS VIVID · 玻璃拟态图标',
@@ -273,29 +306,6 @@ export const works: Work[] = [
       decision: '产品信息不加旁白、不加图标，用一张规格表说清，节奏跟着材质走。',
       answer: '「为什么这么暗？」—— Glass, only shows in the dark.',
     },
-  },
-  {
-    id: 'concept',
-    no: '10',
-    title: 'AI 概念原画',
-    titleEn: 'AI CONCEPT ART',
-    category: 'ai',
-    categoryLabel: 'AI 概念设计 / AI CONCEPT ART',
-    year: '2026',
-    meta: '5 张角色原画 · AI 生成',
-    cover: W + 'proto_melee.jpg',
-    gallery: [W + 'proto_melee.jpg', W + 'proto_mecha.jpg', W + 'proto_lumiera.jpg', W + 'proto_iso.jpg', W + 'proto_shadow.jpg'],
-    // 前三张里两张是竖幅人物：脸在顶部约 10%；第四张主体（紫色核心）在中部
-    galleryPosition: ['center', 'center', '50% 4%', '50% 42%', '50% 4%'],
-    summary: '把脑内的角色，先画准，再让故事成立。',
-    description:
-      '一组用 AI 绘制的角色概念原画，覆盖机甲、使徒、异构体与原创角色卢米艾拉等。每张都先锁定剪影、配色与材质语言，再展开细节，让角色在单图内就能立住，也为后续短片与分镜提供一致的视觉锚点。',
-    points: [
-      '先定剪影与色彩基调，再堆细节，避免「好看但认不出是谁」',
-      '统一材质与光影方向，让不同角色属于同一世界观',
-      '为后续 AI 短片提供三视图式锚点，降低连戏成本',
-    ],
-    tools: ['Midjourney', '即梦', 'Photoshop 精修', '角色设计'],
   }
 ];
 
